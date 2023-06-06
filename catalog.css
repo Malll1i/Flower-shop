@@ -1,0 +1,876 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    color: #202B19;
+    font-family: 'EB Garamond', serif;
+}
+
+.catalog-main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.catalog-left{
+    width: 50%;
+}
+
+.catalog-left img{
+    width: 100%;
+    height: 100vh;
+}
+
+.catalog-right{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.catalog-right p, h1{
+    margin-left: 15%;
+}
+
+.catalog-right h1{
+    margin-top: 20%;
+    font-size: 50px;
+}
+
+.catalog-right p{
+    font-size: 20px;
+    margin-top: 2%;
+}
+
+.catalog-right-link{
+    margin-top: 5%;
+    margin-left: 15%;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+/* корзина */
+
+.cart {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0);
+    transition: 0.1s;
+    cursor: pointer;
+    position: fixed; /* Фиксированное расположение */
+    top: 5%; /* в правом верхнем углу */
+    margin-left: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+    padding: 15px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid #000000;
+  }
+  
+  .cart:hover {
+    transform: scale(1.1);
+  }
+  
+  .cart__num {
+    position: absolute;
+    background-color: #d62240;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    top: -5px;
+    right: -5px;
+  }
+
+  .cart i {
+    font-size: 40px;
+    color: rgb(30, 26, 26);
+  }
+
+/* корзина */
+
+/*окно оформления*/
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.33); /* Небольшое затемнение на фоне */
+    z-index: 1000; /* Поверх всех окон */
+    width: 100%;
+    height: 100%;
+    display: none; /* По умолчанию скрываем окно */
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    overflow-y: scroll; 
+  }
+
+.popup h2{
+    color: black;
+}
+
+.popup h1{
+    color: black;
+}
+  
+  /* Стилизация контейнера окна */
+  .popup__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Распределяем элементы внутри равномерно */
+    width: 100%;
+    max-width: 800px;
+    min-height: 300px;
+    background-color: #fff;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    position: relative;
+  }
+  
+  /* Элементы окна (заголовок, список товаров, вывод стоимости) */
+  .popup__item {
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+  }
+  
+  .popup__item:last-of-type {
+    border-bottom: none;
+  }
+  
+  .popup__title {
+    font-size: 20px;
+  }
+  
+  /* Стили для вывода товара */
+  .popup__product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .popup__product-wrap {
+    display: flex;
+    align-items: center;
+  }
+  
+  .popup__product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-right: 10px;
+  }
+  
+  .popup__product-title {
+    max-width: 300px;
+    font-weight: 500;
+    color: black;
+  }
+  
+  .popup__product-price {
+    font-size: 18px;
+    margin-right: 15px;
+    color: black;
+  }
+  
+  /* Стили для кнопки удаления товара */
+  .popup__product-delete {
+    font-size: 12px;
+    padding: 5px;
+    cursor: pointer;
+    color: #364364;
+    border: white 1px;
+  }
+
+  .popup__product-delete:hover {
+    color: rgb(164, 24, 24);
+  }
+  
+  /* Стили для вывода стоимости товаров */
+  .popup__cost {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 5px;
+  }
+  
+  .popup__cost-title {
+    margin-right: 15px;
+    font-size: 20px;
+    color: #364364;
+    text-align: right;
+  }
+  
+  .popup__cost-value {
+    font-size: 20px;
+    color: black;
+  }
+
+  
+  /* Стили для кнопки закрытия окна */
+  
+  .popup__close {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    color: rgba(0, 0, 0, 0.7);
+    border: white 1px;
+    font-size: 20px;
+  }
+  
+  .popup__close:hover {
+    color: rgb(164, 24, 24);
+  }
+  
+  .popup--open {
+    display: flex;
+  }
+
+  .popup__quantity{
+    margin-left: 100px;
+    margin-right: 30px;
+    font-size: 15px;
+  }
+
+  .popup__quantity button{
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    border: none;
+  }
+/*окно оформления*/
+
+
+/* каталог для ознакомления*/
+
+.main-card-bite-section{
+    margin-top: 10%;
+}
+
+.top-catalog-text{
+    margin-left: 6%;
+}
+
+.top-catalog-text h2{
+    font-size: 40px;
+}
+
+.card-top{
+    display: inline-flex;
+}
+
+.card-buttom{
+    display: inline-flex;
+    margin-top: 3%;
+}
+
+.cards-bite{
+    margin-top: 5%;
+}
+
+.main-card-direction{
+    display: inline-flex;
+}
+
+.main-card{
+    display: inline-flex;
+    margin-left: 15%;
+}
+
+.main-card-text{
+    background: #A0DB8E;
+    height: 585px;
+    padding: 10px;
+}
+
+.main-card-img img{
+    height: 605px;
+}
+
+.cards-bite-regulation{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-with-inf{
+    display: flex;
+    flex-direction: row;
+    background-color: #EEE9FA;
+    height: 292px;
+}
+
+.card-text{
+    padding: 10px;
+}
+
+.card-top-first{
+    width: 400px;
+    margin-left: 10%;
+}
+
+.card-top-second{
+    width: 400px;
+    margin-left: 5%;
+}
+
+
+
+.card-buttom-first{
+    margin-left: 10%;
+    width: 469px;
+}
+
+.card-buttom-second{
+    margin-left: 5%;
+    width: 400px;
+}
+
+
+
+.card-top span{
+    color: #EEE9FA;
+}
+
+.card-buttom span{
+    color: #EEE9FA;
+}
+
+.watch-button-left-top{
+    width: 100px;
+    height: 30px;
+    font-family: 'EB Garamond', serif;
+    background: #FFFFFF;
+    border: #FFFFFF;
+    margin-top: 143%;
+    margin-left: 20%;
+    cursor: pointer;
+}
+
+.watch-button-left-top:hover{
+    background-color: #d3d3d3;
+    transition: .3;
+}
+
+.watch-button-left-buttom{
+    width: 100px;
+    height: 30px;
+    font-family: 'EB Garamond', serif;
+    background: #FFFFFF;
+    border: #FFFFFF;
+    margin-top: 135%;
+    margin-left: 25%;
+    cursor: pointer;
+}
+
+.watch-button-left-buttom:hover{
+    background-color: #CCCCCC;
+    transition: .3;
+}
+
+.watch-button-right-buttom{
+    width: 100px;
+    height: 30px;
+    font-family: 'EB Garamond', serif;
+    background: #FFFFFF;
+    border: #FFFFFF;
+    margin-top: 88%;
+    margin-left: 18%;
+    cursor: pointer;
+}
+
+.watch-button-right-buttom:hover{
+    background-color: #CCCCCC;
+    transition: .3;
+}
+
+.watch-button-right-top{
+    width: 100px;
+    height: 30px;
+    font-family: 'EB Garamond', serif;
+    background: #FFFFFF;
+    border: #FFFFFF;
+    margin-top: 94%;
+    margin-left: 18%;
+    cursor: pointer;
+}
+
+.watch-button-right-top:hover{
+    background-color: #CCCCCC;
+    transition: .3;
+}
+
+.watch-main-button{
+    width: 100px;
+    height: 30px;
+    font-family: 'EB Garamond', serif;
+    background: #FFFFFF;
+    border: #FFFFFF;
+    margin-top: 413px;
+    margin-left: 1%;
+    cursor: pointer;
+}
+
+.watch-main-button:hover{
+    background-color: #CCCCCC;
+    transition: .3;
+}
+
+.popup__quantity h1{
+    padding-left: 15%;
+  }
+
+
+
+/* каталог для ознакомления*/
+
+
+/* карточки товара */
+.card-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-section-first{
+    display: flex;
+    flex-direction: column;
+}
+
+.main-caption{
+    margin-top: 5%;
+}
+
+.main-caption h1{
+    font-size: 50px;
+    margin-top: 5%;
+    margin-left: 3%;
+}
+
+.main-caption h1{
+    text-transform: uppercase;
+    font-family: 'Gambetta', serif;
+    letter-spacing: -3px;
+    transition: 700ms ease;
+    font-variation-settings: "wght" 311;
+    margin-bottom: 0.8rem;
+    outline: none;
+}
+
+.main-caption h1:hover{
+    font-variation-settings: "wght" 582; 
+    letter-spacing: 1px;
+}
+
+.main-first-line{
+    display: flex;
+    flex-direction: row;
+    margin-top: 3%;
+}
+
+.main-second-line{
+    display: flex;
+    flex-direction: row;
+    margin-top: 3%;
+}
+
+.card-inf{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.card-inf:hover{
+    box-shadow: 0 14px 80px -5px rgba(0, 0, 0, 0.75);
+}
+
+.first-card{
+    margin-left: 3%;
+}
+
+.card-inf img{
+    width: 400px;
+}
+
+
+
+.second-card{
+    margin-left: 5%;
+}
+
+.third-card{
+    margin-left: 5%;
+}
+
+.card-inf h3{
+   color:  #4682B4;
+   margin-top: 2%;
+   font-size: 30px;
+}
+
+.card-inf button{
+    background: #20B2AA;
+    border: #20B2AA;
+    margin-top: 2%;
+    height: 50px;
+    width: 400px;
+    color: white;
+    cursor: pointer;
+    padding-left: -30px;
+
+    overflow:hidden;
+ }
+
+ .card-inf button::before{
+    font-family: FontAwesome;
+	content:"\f07a";
+	position: relative;
+    font-size: 20px;
+	top: 0px;
+	left: -160px;
+	transition: all 300ms ease;
+  }
+
+  .card-inf button:hover:before {
+	left: -85px;
+}
+
+ .card-inf button:hover{
+   background: #1a8e88;
+ }
+
+/* карточки товара */
+
+@media only screen and (max-width: 600px) {
+    
+    .catalog-main{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .catalog-left{
+        width: 100%;
+    }
+    
+    .catalog-left img{
+        width: 100%;
+        height: 50vh;
+        margin-top: 3%;
+    }
+    
+    .catalog-right{
+        width: 90%;
+    }
+    
+    
+    .catalog-right p,h1,a{
+        margin-left: 5%;
+    }
+    
+    .catalog-right h1{
+        margin-top: 5%;
+        font-size: 40px;
+    }
+    
+    .catalog-right p{
+        font-size: 20px;
+        margin-top: 2%;
+    }
+    
+    .catalog-right a {
+        font-size: 25px;
+        margin-top: 10%;
+        cursor: pointer;
+    }
+    .catalog-right-link{
+        margin-top: 5%;
+        margin-left: 15%;
+        font-size: 20px;  
+    }
+    .catalog-right-link i{
+        font-size: 18px;
+    }
+
+    /* каталог для ознакомления*/
+    
+    .main-card-bite-section{
+        display: flex;
+        flex-direction: column;
+        margin-top: 15%;
+    }
+
+
+    .cards-bite{
+        display:flex;
+        flex-direction: column;
+        
+    }
+
+    .card-top{
+        display: inline-flex;
+    }
+
+    .main-card-direction{
+        display:flex;
+        flex-direction: column;
+    }
+
+    .card-with-inf{
+        display: flex;
+        flex-direction: row;
+        background-color: #EEE9FA;
+        height: 292px;
+    }
+
+    .card-img img{
+        width: 170px;
+        height: 150px;
+        border-radius: 10px;
+    }
+
+    .card-buttom-first{
+        display: flex;
+        flex-direction: column;
+        margin-left: 15%;
+        width: auto;
+    }
+
+    .card-with-inf{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .watch-button-left-top{
+        width: 100px;
+        margin-top: 35%;
+        margin-left: 11%;
+    }
+
+    .watch-button-left-buttom{
+        width: 100px;
+        margin-top: 15%;
+        margin-left: 11%; 
+    } 
+
+    .watch-button-right-buttom{
+        width: 100px;
+        margin-top: 15%;
+        margin-left: 11%;
+    }
+    
+    .watch-button-right-top{
+        width: 100px;
+        margin-top: 15%;
+        margin-left: 11%;      
+    }
+
+    .card-top-first{
+        width: 170px;
+        margin-left: 5%;
+    }
+    
+    .card-buttom-first{
+        width: 170px;
+        margin-left: 5%;
+    }
+
+    .card-top-second{
+        width: 170px;
+        margin-left: 5%;
+    }
+
+    .card-top-second img{
+        margin-left: 0%;
+    }
+
+    .card-top-first img{
+        margin-left: 0%;
+    }
+
+    .card-buttom-first img{
+        margin-left: 0%;
+    }
+
+    .card-buttom-second{
+        width: 170px;
+        margin-left: 5%;
+    }
+
+    .card-buttom-second img{
+        margin-left: 0%;
+    }
+
+    .card-with-inf{
+        border-radius: 10px;
+    }
+
+    .top-catalog-text{
+        margin-left: 3%;
+    }
+    .cart {
+        margin-left: 75%;
+        margin-top: 140%;
+      }
+    /* каталог для ознакомления*/
+
+    /* карточки товара */
+
+    .card-section-first{
+        margin-top: 0%;
+    }
+
+    .card-section{
+        margin-top: 0%;
+    }
+
+    .main-caption{
+        margin-left: 12%;
+    }
+
+    .main-caption h1{
+        font-size: 30px;
+    }
+
+    .main-first-line{
+        display: flex;
+        flex-direction: column;
+        margin-top: 3%;
+    }
+    .main-second-line{
+        display: flex;
+        flex-direction: column;
+        margin-top: 3%;
+    }
+
+    .first-card{
+        margin-left: 12%;
+    }
+    .second-card{
+        margin-left: 12%;
+    }
+    
+    .third-card{
+        margin-left: 12%;
+    }
+
+    .main-card{
+        margin-top: 5%;
+        margin-left: 5%;
+    }
+
+    .watch-main-button{
+        margin-top: 150px;
+        margin-left: -1%;
+    }
+
+    .main-card-img img{
+        height: 300px;
+        width: 222px;
+    }
+
+    .main-card-text{
+        width: 30%;
+        height: 280px;
+    }
+
+    .card-inf img{
+        width: 300px;
+    }
+    .card-inf button{
+        width: 300px;
+    }
+
+    .card-inf button{
+        width: 300px;
+    }
+
+    .card-inf{
+        margin-left: 0%;
+    }
+
+    .card-inf:hover{
+        box-shadow: 0 14px 80px -5px rgba(0, 0, 0, 0.0);
+    }
+
+    .popup__quantity{
+        margin-left: 0px;
+        font-size: 15px;
+      }
+    /* карточки товара */
+
+    /* футер */
+
+
+    .footer{
+        background-color: #1a8e88;
+    }
+
+
+    .footer-links-left{
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* футер */
+
+
+}
+
+@media only screen and (max-width: 400px) {
+    .card-section-first{
+        margin-top: 15%;
+    }
+    .main-caption{
+        margin-left: 9%;
+    }
+    .first-card{
+        margin-left: 9%;
+    }
+    .second-card{
+        margin-left: 9%;
+    }
+    
+    .third-card{
+        margin-left: 9%;
+    }
+
+
+
+    
+}
+
+@media only screen and (max-width: 380px) {
+    .card-section-first{
+        margin-top: 45%;
+    }
+    .card-top-first{
+        width: 170px;
+        margin-left: 3%;
+    }
+    
+    .card-buttom-first{
+        width: 170px;
+        margin-left: 3%;
+    }
+
+    .main-caption{
+        margin-left: 10%;
+        margin-top: -40%;
+    }
+
+    .top-catalog-text{
+        margin-left: 3%;
+        margin-top: 30%;
+    }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section>
+        <div class="main-with-pic">
+            <div class="main-text-and-links">
+                <div class="main-links">
+                    <ul class="just-links">
+                        <li><a id="main-page">Главная</a></li>
+                        <li><a href="catalog.html">Каталог</a></li>
+                        <li><a href="delivery.html">Доставка</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                    </ul>
+                    <button class="cart" id="cart">
+                        <i class="bi bi-cart"  alt="Cart"></i> 
+                        <div class="cart__num" id="cart_num">0</div>
+                    </button>
+                </div>
+
+                <div class="main-text">
+                    <h1>Найдите  идеальное<br> дополнение к вашей<br> комнате </h1>
+                    <p>Мы поможем вам подобрать растения, соответствующие<br> вашим потребностям и стилю. Загляните к нам в магазин<br> и окружите себя зеленью.</p>
+                    <div class="secondary-text">
+                        <a href="catalog.html">Перейти в каталог <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--оформление-->
+        <div class="popup">
+            <div class="popup__container" id="popup_container">
+              <div class="popup__item">
+                <h1 class="popup__title">Оформление заказа</h1>
+              </div>
+              <div class="popup__item" id="popup_product_list">
+                <div class="popup__product">
+                  <div class="popup__product-wrap">
+                    <img
+                      src="./img/succulent.jpg"
+                      alt="Apple IPhone 14 Pro Max 256Gb"
+                      class="popup__product-image"
+                    />
+                    <h2 class="popup__product-title">
+                      Цветочек домашний
+                    </h2>
+                  </div>
+                  <div class="popup__product-wrap">
+                    <div class="popup__product-price">135000</div>
+                    <button class="popup__product-delete">✖</button>
+                  </div>
+                </div>
+              </div>
+              <div class="popup__item">
+                <div class="popup__cost">
+                  <h2 class="popup__cost-title">Итого</h2>
+                  <output class="popup__cost-value" id="popup_cost">150000</output>
+                </div>
+              <button class="popup__close" id="popup_close">✖</button>
+            </div>
+          </div>
+        <!--оформление-->
+
+    </section>
+    <script src="main.js"></script>
+</body>
+</html>

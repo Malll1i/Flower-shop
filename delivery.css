@@ -1,0 +1,166 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    color:black;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+section{
+    width: 100vw;
+    height: 100vh;
+}
+
+h2{
+    font-size: 25px;
+}
+
+.delivery{
+    background-image: url(./img/deliveryBcg.jpg);
+    background-position: right -3em top -50px;
+    width: 100%;
+    height: 100%;
+}
+
+.delivery h1{
+    margin-left: 39%;
+    font-size: 55px;
+}
+
+.delive-inf{
+    display: flex;
+    flex-direction: row;
+    margin-top: 8%;
+}
+
+.delive-part{
+    display: flex;
+    flex-direction: row;
+    margin-left: 12%;
+}
+
+.sms-part{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+}
+
+.time-part{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+}
+
+.vl {
+    border-left: 1px solid #363F30;
+    height: 500px;
+    margin-left: 20%;
+}
+
+
+.delive-part-text h4{
+    font-size: 200px;
+}
+
+.sms-part-text h4{
+    font-size: 200px;
+}
+
+.time-part-text h4{
+    font-size: 200px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    section{
+        width: 190%;
+        height: 195vh;
+    }
+
+    h2{
+        font-size: 35px;
+    }
+
+    i{
+        margin-left: 25%;
+    }
+
+    .delivery h1{
+        margin-left: 30%;
+        font-size: 60px;
+    }
+
+    .time-part-text i{
+        margin-left: 60%;
+    }
+
+    .delivery{
+        background-position: right -10em top -10px;
+    }
+
+    .delive-inf{
+        display: flex;
+        flex-direction: column;
+        margin-top: 8%;
+    }
+    
+    .delive-part{
+        display: flex;
+        flex-direction: column;
+        margin-left: 12%;
+    }
+    
+    .sms-part{
+        display: flex;
+        flex-direction: column;
+        margin-left: 10%;
+        margin-top: 8%;
+    }
+
+    .sms-part-text h2{
+        margin-left: 13%;
+    }
+
+    .time-part{
+        display: flex;
+        flex-direction: row;
+        margin-left: 10%;
+        margin-top: 8%;
+    }
+
+    .time-part-text h2{
+        margin-left: 50%;
+    }
+
+    .delive-part-text h2{
+        margin-left: 13%;
+    }
+
+    .time-part-text h2{
+        margin-left: 50%;
+    }
+
+    .vl {
+        height: 0;
+        border-left: 0;
+        border-top: 1px solid #363F30;
+        width: 500px;
+        margin-left: 0%;
+        margin-top: 5%;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    section{
+        width: 190%;
+        height: 210vh;
+    }
+
+
+}
+
+@media only screen and (max-width: 380px){
+    section{
+        width: 190%;
+        height: 230vh;
+    }
+}
